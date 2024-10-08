@@ -5,8 +5,10 @@ edition = "2018"
 
 [dependencies]
 
+# profile used for 'cargo build'
 [profile.dev]
-panic = "abort"
+panic = "abort" # disable stack unwinding on panic
 
+# profile used for 'cargo release'
 [profile.release]
-panic = "abort"
+panic = "abort" # disable stack unwinding on panic
