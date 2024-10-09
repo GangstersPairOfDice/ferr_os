@@ -1,5 +1,5 @@
 [build]
-target = "x64_64-ferr_os.json"
+target = "x86_64-ferr_os.json"
 
 [unstable]
 build-std-features = ["compiler-builtins-mem"]
