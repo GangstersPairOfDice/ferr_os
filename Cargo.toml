@@ -4,6 +4,7 @@ version = "0.2.0"
 edition = "2018"
 
 [dependencies]
+bootloader = "0.9" # bootloader Rust crate
 
 # profile used for 'cargo build'
 [profile.dev]
