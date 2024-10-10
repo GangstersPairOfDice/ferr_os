@@ -4,4 +4,6 @@ OS written in Rust. Nuff said.
 
 ## Features
 
-![screenshot][hello_world.png]
+<p align="center">
+  <img src="hello_world.png" alt="OS features" />
+</p>
