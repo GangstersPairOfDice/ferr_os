@@ -19,3 +19,13 @@ pub enum Color {
     Yellow = 14,
     White = 15,
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(transparent)] // ensures same data layout as u8
+struct ColorCode(u8); // contains full color byte
+
+impl ColorCode {
+  fn new(foreground: Color, Background: Color) -> ColorCode {
+    ColorCode((background as u8) << 4 | (foreground as u8))
+  }
+}
