@@ -25,7 +25,7 @@ pub enum Color {
 struct ColorCode(u8); // contains full color byte
 
 impl ColorCode {
-  fn new(foreground: Color, Background: Color) -> ColorCode {
+  fn new(foreground: Color, background: Color) -> ColorCode {
     ColorCode((background as u8) << 4 | (foreground as u8))
   }
 }
@@ -72,17 +72,48 @@ impl Writer {
         }
 
         let row = BUFFER_HEIGHT -1;
-        let col = self.column.position;
+        let col = self.column_position;
 
         let color_code = self.color_code;
         self.buffer.chars[row][col] = ScreenChar {
           ascii_character: byte,
           color_code,
         };
-        self.column_posiiton +=1;
+        self.column_position +=1;
       }
     }
   }
 
   fn new_line(&mut self) {/* TODO */}
+}
+
+pub fn splash_screen() {
+  let mut writer = Writer {
+     column_position: 0,
+     color_code: ColorCode::new(Color::Yellow, Color::Black),
+     buffer: unsafe { &mut *(0xb8000 as *mut Buffer) }, // points to VGA buffer
+   };
+
+   writer.write_string("
+        ______\n
+       (  =)  )\n
+    ___________\n
+       dGGGGMMb     ,................\n
+      @p~qp~~qMb    | Enlightenment |\n
+      M|@||@) M|   _;...............'\n
+      @,----.JM| -'\n
+     JS^|__/  qKL\n
+    dZP        qKRb\n
+   dZP          qKKb\n
+  fZP            SMMb\n
+  HZM            MMMM\n
+  FqM            MMMM\n
+ _qM.         ..MqML\n
+/./  `.       | `' ..\n
+'.     |____.,|     .'\n
+  '.   )MMMMMM|   .'\n
+    `-'       `--'\n
+\n
+")
+
 }
