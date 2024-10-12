@@ -1,6 +1,8 @@
 #![no_std] // disables standard library
 #![no_main] // overwrites the normal entry point
 
+mod vga_buffer; // rust module to handle printing
+
 // since no std_lib
 // need to write own panic handler func
 use core::panic::PanicInfo;
