@@ -29,3 +29,26 @@ impl ColorCode {
     ColorCode((background as u8) << 4 | (foreground as u8))
   }
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(C)] // lays out struct fields like a C struct, ensures correct field ordering
+struct ScreenChar {
+  ascii_character: u8,
+  color_code: ColorCode,
+}
+
+const BUFFER_HEIGHT: usize = 25;
+const BUFFER_WIDTH: usize = 80;
+
+#[repr(transparent)] // again, ensure same memory layout as its single field
+struct Buffer {
+  chars: [[ScreenChar; BUFFER_WIDTH]; BUFFER_HEIGHT],
+}
+
+pub struct Writer {
+  column_position: usize, // keeps track of current position in latest row
+  color_code: ColorCode, // fore&back-ground colors
+  buffer: &'static mut Buffer, // ref to VGA buffer
+  // 'static lifetime tells compiles the reference is valid for the whole program runtime
+}
+
