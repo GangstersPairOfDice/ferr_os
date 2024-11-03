@@ -127,37 +127,3 @@ lazy_static! {
     buffer: unsafe { &mut *(0xb800 as *mut Buffer) },
   });
 }
-
-pub fn splash_screen() {
-  use core::fmt::Write;
-  let mut writer = Writer {
-     column_position: 0,
-     color_code: ColorCode::new(Color::Yellow, Color::Black),
-     buffer: unsafe { &mut *(0xb8000 as *mut Buffer) }, // points to VGA buffer
-   };
-
-   write!(writer, "ferrOS version {}",0.1/10.0).unwrap(); // unwrap panics if error occurs
-   writer.write_string("
-
-        ______
-       (  =)  )
-    ___________
-       dGGGGMMb     ,................
-      @p~qp~~qMb    | Enlightenment |
-      M|@||@) M|   _;...............'
-      @,----.JM| -'
-     JS^|__/  qKL
-    dZP        qKRb
-   dZP          qKKb
-  fZP            SMMb
-  HZM            MMMM
-  FqM            MMMM
- _qM.         ..MqML
-/./  `.       | `' ..
-'.     |____.,|     .'
-  '.   )MMMMMM|   .'
-    `-'       `--'
-
-")
-
-}

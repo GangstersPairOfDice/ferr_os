@@ -23,7 +23,30 @@ pub extern "C" fn _start() -> ! {
   // this func is the entry point, since the linker looks for a func
   // named '_start' by default
   
-  vga_buffer::splash_screen();
+  use core::fmt::Write;
+  write!(vga_buffer::WRITER.lock(), "ferrOS version {}",0.1/10.0).unwrap();
+  vga_buffer::WRITER.lock().write_str("
+
+        ______
+       (  =)  )
+    ___________
+       dGGGGMMb     ,................
+      @p~qp~~qMb    | Enlightenment |
+      M|@||@) M|   _;...............'
+      @,----.JM| -'
+     JS^|__/  qKL
+    dZP        qKRb
+   dZP          qKKb
+  fZP            SMMb
+  HZM            MMMM
+  FqM            MMMM
+ _qM.         ..MqML
+/./  `.       | `' ..
+'.     |____.,|     .'
+  '.   )MMMMMM|   .'
+    `-'       `--'
+
+")
 
   loop {}
 }
