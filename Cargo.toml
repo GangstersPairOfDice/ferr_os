@@ -7,6 +7,11 @@ edition = "2018"
 bootloader = "0.9" # bootloader Rust crate
 volatile = "0.2.6" # tells compiler to not optimize writes away
 
+# provides macro that defs lazy static, inits when accessed for first time
+[dependancies.lazy_static]
+version = "1.0"
+features = ["spin_no_std"] # needed since we dont link standard lib
+
 # profile used for 'cargo build'
 [profile.dev]
 panic = "abort" # disable stack unwinding on panic
