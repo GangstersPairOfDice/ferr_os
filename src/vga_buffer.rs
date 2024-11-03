@@ -121,7 +121,7 @@ use spin::Mutex;
 use lazy_static::lazy_static;
 
 lazy_static! {
-  pub static ref Writer: Mutex<Writer> = Mutex::new(Writer {
+  pub static ref WRITER: Mutex<Writer> = Mutex::new(Writer {
     column_position: 0,
     color_code: ColorCode::new(Color::Yellow, Color::Black),
     buffer: unsafe { &mut *(0xb800 as *mut Buffer) },
