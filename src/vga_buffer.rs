@@ -117,6 +117,12 @@ impl fmt::Write for Writer {
   }
 }
 
+pub static Writer: Writer = Writer {
+  column_position: 0,
+  color_code: ColorCode::new(Color::Yellow, Color::Black),
+  buffer: unsafe { &mut *(0xb800 as *mut Buffer) },
+};
+
 pub fn splash_screen() {
   use core::fmt::Write;
   let mut writer = Writer {
