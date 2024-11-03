@@ -1,6 +1,6 @@
 # ferr_os
 
-OS written in Rust. Nuff said.
+Bare-bones kernel written in Rust.
 
 ## Features
 
