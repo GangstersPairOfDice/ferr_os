@@ -46,7 +46,7 @@ pub extern "C" fn _start() -> ! {
   '.   )MMMMMM|   .'
     `-'       `--'
 
-")
+");
 
   loop {}
 }
