@@ -127,25 +127,26 @@ pub fn splash_screen() {
 
    write!(writer, "ferrOS version {}",0.1/10.0).unwrap(); // unwrap panics if error occurs
    writer.write_string("
-        ______\n
-       (  =)  )\n
-    ___________\n
-       dGGGGMMb     ,................\n
-      @p~qp~~qMb    | Enlightenment |\n
-      M|@||@) M|   _;...............'\n
-      @,----.JM| -'\n
-     JS^|__/  qKL\n
-    dZP        qKRb\n
-   dZP          qKKb\n
-  fZP            SMMb\n
-  HZM            MMMM\n
-  FqM            MMMM\n
- _qM.         ..MqML\n
-/./  `.       | `' ..\n
-'.     |____.,|     .'\n
-  '.   )MMMMMM|   .'\n
-    `-'       `--'\n
-\n
+
+        ______
+       (  =)  )
+    ___________
+       dGGGGMMb     ,................
+      @p~qp~~qMb    | Enlightenment |
+      M|@||@) M|   _;...............'
+      @,----.JM| -'
+     JS^|__/  qKL
+    dZP        qKRb
+   dZP          qKKb
+  fZP            SMMb
+  HZM            MMMM
+  FqM            MMMM
+ _qM.         ..MqML
+/./  `.       | `' ..
+'.     |____.,|     .'
+  '.   )MMMMMM|   .'
+    `-'       `--'
+
 ")
 
 }
