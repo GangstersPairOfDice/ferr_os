@@ -6,6 +6,7 @@ edition = "2018"
 [dependencies]
 bootloader = "0.9" # bootloader Rust crate
 volatile = "0.2.6" # tells compiler to not optimize writes away
+spin = "0.5.2"
 
 # provides macro that defs lazy static, inits when accessed for first time
 [dependancies.lazy_static]
