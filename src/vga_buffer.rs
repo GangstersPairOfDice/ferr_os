@@ -125,7 +125,7 @@ pub fn splash_screen() {
      buffer: unsafe { &mut *(0xb8000 as *mut Buffer) }, // points to VGA buffer
    };
 
-   write!(writer, "ferrOS version {}",0.1/10).unwrap(); // unwrap panics if error occurs
+   write!(writer, "ferrOS version {}",0.1/10.0).unwrap(); // unwrap panics if error occurs
    writer.write_string("
         ______\n
        (  =)  )\n
