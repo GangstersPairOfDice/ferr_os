@@ -100,12 +100,14 @@ impl fmt:Write for Writer {
 }
 
 pub fn splash_screen() {
+  use core::fmt::Write;
   let mut writer = Writer {
      column_position: 0,
      color_code: ColorCode::new(Color::Yellow, Color::Black),
      buffer: unsafe { &mut *(0xb8000 as *mut Buffer) }, // points to VGA buffer
    };
 
+   write!(writer, "ferrOS version {}",0.1/10).unwrap(); // unwrap panics if error occurs
    writer.write_string("
         ______\n
        (  =)  )\n
