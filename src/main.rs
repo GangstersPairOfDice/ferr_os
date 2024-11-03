@@ -32,7 +32,7 @@ pub extern "C" fn _start() -> ! {
     ___________
        dGGGGMMb     ,................
       @p~qp~~qMb    | Enlightenment |
-      M|@||@) M|   _;...............'
+      M (@)(@) M   _;...............'
       @,----.JM| -'
      JS^|__/  qKL
     dZP        qKRb
