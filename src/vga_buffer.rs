@@ -41,8 +41,11 @@ const BUFFER_HEIGHT: usize = 25;
 const BUFFER_WIDTH: usize = 80;
 
 #[repr(transparent)] // again, ensure same memory layout as its single field
+
+use volatile::Volatile;
+
 struct Buffer {
-  chars: [[ScreenChar; BUFFER_WIDTH]; BUFFER_HEIGHT],
+  chars: [[Volatile<ScreenChar>; BUFFER_WIDTH]; BUFFER_HEIGHT],
 }
 
 pub struct Writer {
